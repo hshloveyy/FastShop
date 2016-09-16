@@ -1,11 +1,7 @@
 package com.sea.controller;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -14,13 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.sea.entity.Product;
 import com.sea.mybatis.mapper.ProductMapper;
+import com.sea.mybatis.param.ProductParams;
 import com.sea.result.Result;
 
 @RestController
 @RequestMapping("product")
-public class ProductController {
+public class ProductController extends BaseController<Product>{
 	
 	Logger logger = Logger.getLogger(ProductController.class);
 	
@@ -40,10 +38,13 @@ public class ProductController {
 	
 	@ResponseBody
 	@RequestMapping("queryProduct")
-	public Result queryProduct(){
-		logger.debug("queryProduct " + productMapper);
+	public Result queryProduct(ProductParams productParams){
+		logger.debug("######################## queryProduct start #############################");
+		logger.debug(productParams);
+		List<Product> list = queryPageList("com.sea.mybatis.mapper.ProductMapper.queryProduct", productParams);
 		Result result = new Result();
-		result.setData(productMapper.queryProduct());
+//		result.setData(productMapper.queryProduct(productParams));
+		result.setData(list);
 		return result;
 	}
 }

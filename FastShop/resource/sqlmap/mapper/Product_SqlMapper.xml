@@ -12,7 +12,8 @@
 	</resultMap>
 
 	<!-- 查询产品 -->
-	<select id="queryProduct" resultMap="ProductMap">
-		select * from t_fs_prod_productinfo
+	<select id="queryProduct" resultMap="ProductMap" parameterType="productParams">
+		select * from (
+		select * from t_fs_prod_productinfo limit #{offset}, #{limit}) t order by t.id desc
 	</select>
 </mapper>  

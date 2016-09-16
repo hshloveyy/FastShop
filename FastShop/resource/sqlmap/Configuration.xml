@@ -20,7 +20,10 @@
         <setting name="defaultExecutorType" value="SIMPLE"/>
         <setting name="defaultStatementTimeout" value="25000"/>
     </settings>
-
+	<typeAliases>
+		<package name="com.sea.entity"/>
+		<package name="com.sea.mybatis.param"/>
+	</typeAliases>
 <!--     <typeHandlers> -->
 <!--         <typeHandler javaType="Boolean" jdbcType="INTEGER" handler="com.jkurrent.framework.mybatis.BooleanTypeHandler"/> -->
 <!--     </typeHandlers> -->
