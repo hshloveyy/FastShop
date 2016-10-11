@@ -228,6 +228,18 @@ a,a:hover,a:focus {
 	padding-right: 10px;
 }
 
+.login-social-link a.wechat {
+	background: #5193ea;
+	margin-left: 22px;
+	box-shadow: 0 4px #2775e2;
+	float: left;
+}
+
+.login-social-link a.qq {
+	background: #44ccfe;
+	box-shadow: 0 4px #2bb4e8;
+	float: left;
+}
 .login-social-link a.facebook {
 	background: #5193ea;
 	margin-right: 22px;
@@ -240,7 +252,6 @@ a,a:hover,a:focus {
 	box-shadow: 0 4px #2bb4e8;
 	float: left;
 }
-
 
 
 /*------------------------------------------------------------------
