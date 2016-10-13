@@ -28,8 +28,7 @@ public class ProductController extends BaseController<Product>{
 	@RequestMapping("error")
 	public ModelAndView error(){
 		logger.info("This is SpringMVC and FreeMarker !");
-		ModelAndView mav = new ModelAndView("404.html");
-		return mav;
+		return new ModelAndView("404");
 	}
 	
 	@ResponseBody
