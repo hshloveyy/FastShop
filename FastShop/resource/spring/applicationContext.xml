@@ -68,4 +68,29 @@
 		<aop:advisor pointcut-ref="transactionPointcut"
 			advice-ref="transactionAdvice" />
 	</aop:config>
+	
+    <!-- Freemarker配置 -->  
+    <bean id="freemarkerConfig"  
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+        <property name="templateLoaderPaths" value="/WEB-INF/template/" />  
+        <property name="freemarkerSettings">  
+            <props>  
+                <prop key="template_update_delay">0</prop>  
+                <prop key="default_encoding">UTF-8</prop>  
+                <prop key="number_format">0.##########</prop>  
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>  
+                <prop key="classic_compatible">true</prop>  
+                <prop key="template_exception_handler">ignore</prop>  
+                <prop key="url_escaping_charset">UTF-8</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="tag_syntax">auto_detect</prop>
+                <prop key="whitespace_stripping">true</prop>
+                <prop key="boolean_format">true,false</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="time_format">HH:mm:ss</prop>
+<!--                 <prop key="auto_import">${template.auto_import}</prop> -->
+                <prop key="object_wrapper">freemarker.ext.beans.BeansWrapper</prop>
+            </props>  
+        </property>  
+    </bean>  
 </beans>

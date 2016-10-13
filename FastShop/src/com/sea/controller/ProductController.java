@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.sea.entity.Product;
 import com.sea.mybatis.mapper.ProductMapper;
 import com.sea.mybatis.param.ProductParams;
@@ -25,6 +25,13 @@ public class ProductController extends BaseController<Product>{
 	@Autowired
 	private ProductMapper productMapper;
 
+	@RequestMapping("error")
+	public ModelAndView error(){
+		logger.info("This is SpringMVC and FreeMarker !");
+		ModelAndView mav = new ModelAndView("404.html");
+		return mav;
+	}
+	
 	@ResponseBody
 	@RequestMapping("test")
 	public Map<String, Object> test(){

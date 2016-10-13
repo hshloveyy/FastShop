@@ -17,7 +17,7 @@
   	<listener>
 	    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   	</listener>
-	 
+
  	<!-- 字符编码过滤器 -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
@@ -53,7 +53,7 @@
   	</servlet>
   	<servlet-mapping>
 	    <servlet-name>dispatcherServlet</servlet-name>
-	    <url-pattern>*.do</url-pattern>
+	    <url-pattern>*.htm</url-pattern>
   	</servlet-mapping>
   
   	<!-- session有效时间 -->
