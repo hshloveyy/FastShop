@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 
+	4 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀) 
+	5 -->
+<mapper namespace="com.sea.mybatis.mapper.CompanyMapper">
+	<resultMap type="com.sea.entity.Company" id="CompanyMap">
+		<id column="ID" property="id" javaType="String" />
+		<result column="COMPANY_NAME" property="companyName" javaType="String" />
+		<result column="LEGAL_PERSON" property="legalPerson" javaType="String" />
+		<result column="LEGAL_REPRESENTATIVE" property="legalRepresentative" javaType="String" />
+		<result column="REGISTERED_CAPITAL" property="registeredCapital" javaType="String" />
+		<result column="ESTABLISHMENT_DATE" property="establishmentDate" javaType="String" />
+		<result column="ENTERPRISE_TYPE" property="enterpriseType" javaType="String" />
+		<result column="REGISTRATION_INSTITUTION" property="registrationInstitution" javaType="String" />
+		<result column="REGISTRATION_NO" property="registrationNo" javaType="String" />
+		<result column="BUSINESS_LICENSE" property="businessLicense" javaType="String" />
+		<result column="BUSINESS" property="business" javaType="String" />
+		<result column="REGISTERED_ADDRESS" property="registeredAddress" javaType="String" />
+		<result column="APPROVAL_DATE" property="approvalDate" javaType="String" />
+		<result column="START_TIME" property="startTime" javaType="String" />
+		<result column="END_TIME" property="endTime" javaType="String" />
+		<result column="INDUSTRY" property="industry" javaType="String" />
+		<result column="CERTIFICATE_ORGANIZATION_CODE" property="certificateOrganizationCode" javaType="String" />
+		<result column="UNIFORM_CREDIT_CODE" property="uniformCreditCode" javaType="String" />
+		<result column="PHONE" property="phone" javaType="String" />
+		<result column="EMAIL" property="email" javaType="String" />
+		<result column="WEBSITE" property="website" javaType="String" />
+		<result column="FAX" property="fax" javaType="String" />
+		<result column="ADDRESS" property="address" javaType="String" />
+		<result column="STATUS" property="status" javaType="String" />
+		<result column="CREATE_TIME" property="createTime" javaType="String" />
+		<result column="MODIFY_TIME" property="modifyTime" javaType="String" />
+		<result column="CREATER" property="creater" javaType="String" />
+		<result column="IS_DELETE" property="isDelete" javaType="String" />
+		<result column="IS_ENABLE" property="isEnable" javaType="String" />
+	</resultMap>
+
+	<!-- 查询企业 -->
+	<select id="queryCompany" resultMap="CompanyMap" parameterType="companyParams">
+		select * from t_com_sys_company
+	</select>
+</mapper>  
