@@ -10,12 +10,17 @@ import com.sea.controller.BaseController;
 public class IndexController extends BaseController<Object> {
 
 	@RequestMapping("login")
-	private ModelAndView index(){
+	private ModelAndView login(){
 		return new ModelAndView("login");
 	}
 	
 	@RequestMapping("index")
-	private ModelAndView main(){
+	private ModelAndView index(){
 		return new ModelAndView("index");
+	}
+	
+	@RequestMapping("registration")
+	private ModelAndView registration(){
+		return new ModelAndView("admin/registration");
 	}
 }

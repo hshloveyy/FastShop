@@ -98,4 +98,6 @@
 	            </list>
 	        </property>
 		</bean>
+		
+		<import resource="spring-interceptors.xml"/>
 </beans> 

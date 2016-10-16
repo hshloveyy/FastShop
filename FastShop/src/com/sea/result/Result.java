@@ -1,5 +1,7 @@
 package com.sea.result;
 
+import org.apache.log4j.chainsaw.Main;
+
 public class Result {
 
 	public static final String SUCCESS = "0000";
@@ -43,6 +45,5 @@ public class Result {
 	public void setData(Object data) {
 		this.data = data;
 	}
-	
 	
 }

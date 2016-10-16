@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 
+	4 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀) 
+	5 -->
+<mapper namespace="com.sea.mybatis.mapper.ExampleMapper">
+	<resultMap type="com.sea.entity.Company" id="CompanyMap">
+		<id column="ID" property="id" javaType="String" />
+		<result column="COMPANY_NAME" property="companyName" javaType="String" />
+	</resultMap>
+
+	<!-- 查询企业 -->
+	<select id="queryCompany" resultMap="CompanyMap" parameterType="companyParams">
+		select * from t_com_sys_company
+	</select>
+</mapper>  
