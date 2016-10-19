@@ -5,9 +5,11 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.alibaba.fastjson.JSON;
 import com.sea.mybatis.param.BaseParams;
 
 public class BaseController<T> {
+	
 	
 	@Autowired
 	protected SqlSessionFactory sqlSessionFactory;
@@ -22,4 +24,8 @@ public class BaseController<T> {
 		return sqlSessionFactory.openSession().selectList(statment, params);
 	}
 	
+	
+	public void toJsonString(Object object){
+		System.err.println(JSON.toJSONString(object));
+	}
 }
