@@ -94,4 +94,5 @@
         </property>  
     </bean>  
     
+    <bean id="modelViewFactory" class="com.sea.factory.impl.ModelViewFactory"></bean>
 </beans>

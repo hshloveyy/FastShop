@@ -13,7 +13,12 @@
 	</resultMap>
 
 	<!-- 查询管理员 -->
-	<select id="queryAdminAccount" resultMap="AdminAccountMap" parameterMap="hashmap">
+	<select id="queryAdminAccount" resultMap="AdminAccountMap" parameterType="hashmap">
+		select id, username, email, phone, create_time 
+		from t_com_admin_account where username = #{username} and password = MD5(#{password}||salt)
+	</select>
+	
+	<select id="adminLogin" resultMap="AdminAccountMap" parameterType="hashmap">
 		select id, username, email, phone, create_time 
 		from t_com_admin_account where username = #{username} and password = MD5(#{password}||salt)
 	</select>

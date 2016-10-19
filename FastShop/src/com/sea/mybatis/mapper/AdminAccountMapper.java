@@ -12,4 +12,5 @@ public interface AdminAccountMapper {
 	
 	List<AdminAccount> queryAdminAccount(Map<String, Object> params);
 
+	AdminAccount adminLogin(Map<String, Object> params);
 }

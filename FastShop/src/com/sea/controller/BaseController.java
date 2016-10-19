@@ -6,10 +6,13 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;
+import com.sea.factory.ModelAndViewFactory;
 import com.sea.mybatis.param.BaseParams;
 
 public class BaseController<T> {
 	
+	@Autowired
+	protected ModelAndViewFactory modelViewFactory;
 	
 	@Autowired
 	protected SqlSessionFactory sqlSessionFactory;
@@ -18,6 +21,12 @@ public class BaseController<T> {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
+	public void setModelViewFactory(ModelAndViewFactory modelViewFactory) {
+		this.modelViewFactory = modelViewFactory;
+	}
+
+
+
 	public List<T> queryPageList(String statment, BaseParams params){
 		int offset = params.getPageSize() * (params.getPageNum() - 1);
 		params.setOffset(offset);
