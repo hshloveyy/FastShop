@@ -39,6 +39,14 @@
         <div class="login-wrap">
           <input type="text" class="form-control" placeholder="用户名/邮箱/手机号码" name="username" autofocus>
           <input type="password" class="form-control" name="password" placeholder="密码">
+          <#if message != null >
+          <div class="alert alert-block alert-danger fade in">
+             <button data-dismiss="alert" class="close close-sm" type="button">
+             <i class="fa fa-times"></i>
+             </button>
+             ${message }
+          </div>
+          </#if>
           <label class="checkbox">
             <input type="checkbox" value="remember-me" name="rememberMe">
             	记住密码

@@ -4,7 +4,7 @@
 	4 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀) 
 	5 -->
 <mapper namespace="com.sea.mybatis.mapper.AdminAccountMapper">
-	<resultMap type="com.sea.entity.AdminAccount" id="AdminAccountMap">
+	<resultMap type="AdminAccount" id="AdminAccountMap">
 		<id column="ID" property="id" javaType="String" />
 		<result column="USERNAME" property="username" javaType="String" />
 		<result column="EMAIL" property="email" javaType="String" />

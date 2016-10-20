@@ -1,17 +1,13 @@
 package com.sea.controller.web;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sea.controller.BaseController;
@@ -36,7 +32,7 @@ public class AdminController extends BaseController<AdminAccount> {
 		if(admin != null){
 			session.setAttribute("user", admin);
 		}else{
-			return modelViewFactory.LOGIN;
+			return modelViewFactory.LOGIN.addObject("message", "用户名或密码错误");
 		}
 		return modelViewFactory.INDEX;
 	}
