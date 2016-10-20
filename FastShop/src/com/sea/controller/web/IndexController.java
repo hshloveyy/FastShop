@@ -11,12 +11,12 @@ public class IndexController extends BaseController<Object> {
 
 	@RequestMapping("login")
 	private ModelAndView login(){
-		return new ModelAndView("login");
+		return modelViewFactory.login();
 	}
 	
 	@RequestMapping("index")
 	private ModelAndView index(){
-		return new ModelAndView("index");
+		return modelViewFactory.index();
 	}
 	
 	@RequestMapping("registration")

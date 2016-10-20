@@ -32,8 +32,14 @@ public class AdminController extends BaseController<AdminAccount> {
 		if(admin != null){
 			session.setAttribute("user", admin);
 		}else{
-			return modelViewFactory.LOGIN.addObject("message", "用户名或密码错误");
+			return modelViewFactory.login().addObject("msg", "用户名或密码错误");
 		}
-		return modelViewFactory.INDEX;
+		return modelViewFactory.index();
+	}
+	
+	@RequestMapping("logout")
+	public ModelAndView logout(HttpSession session){
+		session.removeAttribute("user");
+		return modelViewFactory.login();
 	}
 }
