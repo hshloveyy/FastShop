@@ -5,10 +5,25 @@
 	5 -->
 <mapper namespace="com.sea.mybatis.mapper.DictionaryMapper">
 	<resultMap type="com.sea.entity.Dictionary" id="DictionaryMap">
-		<id column="ID" property="id" javaType="String" />
-		<result column="NAME" property="name" javaType="String" />
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="CODE" property="code" jdbcType="VARCHAR" />
 	</resultMap>
 
+	<resultMap type="com.sea.entity.DictionaryType" id="DictionaryTypeMap">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="CODE" property="code" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" typeHandler="com.sea.mybatis.typehandler.DateTypeHandler"/>
+		<result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" typeHandler="com.sea.mybatis.typehandler.DateTypeHandler"/>
+		<result column="MODIFY_USER" property="modifyUser" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 查询字典类型 -->
+	<select id="queryDictionaryType" resultMap="DictionaryTypeMap" parameterType="companyParams">
+		select ID,NAME, CODE, CREATE_TIME,MODIFY_TIME,MODIFY_USER from t_com_sys_dictionary_type
+	</select>
+	
 	<!-- 查询字典表 -->
 	<select id="queryDictionary" resultMap="DictionaryMap" parameterType="companyParams">
 		select * from t_com_sys_dictionary

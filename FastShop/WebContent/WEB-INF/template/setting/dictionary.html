@@ -11,11 +11,11 @@
       <!-- BEGIN SHORTCUT ICON -->
 	  <link rel="shortcut icon" href="img/favicon.ico">
 	  <!-- END SHORTCUT ICON -->
-      <title>Dynamic Table</title>
+      <title>Two-Boss 字典类型列表</title>
 	  <!-- BEGIN STYLESHEET --> 
       <link href="res/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
       <link href="res/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-      <link href="res/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON STYLESHEET -->
+      <link href="res/assets/font-awesome-4.6.3/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON STYLESHEET -->
       <link href="res/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet"><!-- ADVANCED DATATABLE CSS -->
       <link href="res/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- ADVANCED DATATABLE CSS -->
       <link rel="stylesheet" href="res/assets/data-tables/DT_bootstrap.css"><!-- DATATABLE CSS -->
@@ -435,49 +435,56 @@
                   <div class="col-lg-12">
                      <section class="panel">
                         <header class="panel-heading">
-                           <span class="label label-primary">Dynamic Table</span>
+                           <span class="label label-primary">数据字典类型</span>
                            <span class="tools pull-right">
                            <a href="javascript:;" class="fa fa-chevron-down"></a>
                            <a href="javascript:;" class="fa fa-times"></a>
                            </span>
                         </header>
+                        <div class="panel-heading">
+                        	<button type="button" class="btn btn-xs btn-info">
+		                    	<i class="fa fa-plus"></i> 新增
+	                    	</button>
+	                    	<button type="button" class="btn btn-xs btn-info">
+		                    	<i class="fa fa-pencil"></i> 编辑
+	                    	</button>
+	                    	<button type="button" class="btn btn-xs btn-danger">
+		                    	<i class="fa fa-trash"></i> 删除
+	                    	</button>
+                        </div>
                         <div class="panel-body">
                            <div class="adv-table">
-                              <table class="display table table-bordered table-striped" id="example">
+                              <table class="display table table-bordered table-striped" id="dictionaryTypeTable">
                                  <thead>
                                     <tr>
-                                       <th>Rendering engine</th>
-                                       <th class="hidden-phone">Browser</th>
-                                       <th>Platform(s)</th>
-                                       <th class="hidden-phone">Engine version</th>
-                                       <th class="hidden-phone">CSS grade</th>
+                                       <th class="center">序号</th>	
+                                       <th class="center">类型</th>
+                                       <th class="center hidden-phone">编码</th>
+                                       <th class="center">创建时间</th>
+                                       <th class="center hidden-phone">最后修改时间</th>
+                                       <th class="center hidden-phone">最后修改用户</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    <tr class="gradeX">
-                                       <td>Trident</td>
-                                       <td class="hidden-phone">Internet
-                                          Explorer 4.0
-                                       </td>
-                                       <td>Win 95+</td>
-                                       <td class="center hidden-phone">4</td>
-                                       <td class="center hidden-phone">X</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                       <td>Webkit</td>
-                                       <td class="hidden-phone">Safari 3.0</td>
-                                       <td>OSX.4+</td>
-                                       <td class="center hidden-phone">522.1</td>
-                                       <td class="center hidden-phone">A</td>
-                                    </tr>
+                                 	<#list dictionaryTypeList as dictType>
+	                                    <tr class="gradeX">
+	                                       <td>${dictType_index + 1}</td>
+	                                       <td>${dictType.name}</td>
+	                                       <td class="hidden-phone">${dictType.code}</td>
+	                                       <td>${dictType.createTime?datetime}</td>
+	                                       <td class="hidden-phone">${dictType.modifyTime?datetime}</td>
+	                                       <td class="hidden-phone">${dictType.modifyUser}</td>
+	                                    </tr>
+                                    </#list>
                                  </tbody>
                                  <tfoot>
                                     <tr>
-                                       <th>Rendering engine</th>
-                                       <th class="hidden-phone">Browser</th>
-                                       <th>Platform(s)</th>
-                                       <th class="hidden-phone">Engine version</th>
-                                       <th class="hidden-phone">CSS grade</th>
+                                       <th class="center">序号</th>	
+                                       <th class="center">类型</th>
+                                       <th class="center hidden-phone">编码</th>
+                                       <th class="center">创建时间</th>
+                                       <th class="center hidden-phone">最后修改时间</th>
+                                       <th class="center hidden-phone">最后修改用户</th>
                                     </tr>
                                  </tfoot>
                               </table>
@@ -516,7 +523,7 @@
       <script >
 	     <!-- DATATABLE JS  -->
          $(document).ready(function() {
-             $('#example').dataTable( {
+             $('#dictionaryTypeTable').dataTable( {
                  "aaSorting": [[ 4, "desc" ]]
              } );
          } );
